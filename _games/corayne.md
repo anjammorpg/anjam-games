@@ -34,7 +34,7 @@ videos:
   - path: "/assets/videos/corayne/system-map.mp4"
     title: "Une gestion claire de temps et des déplacements"
     description: "Vagabondez à l'envie... ou foncez vers la prochaine quête !"
-  - path: "/assets/videos/corayne/system-interface.mp4"
+  - path: "/assets/videos/corayne/system-menu.mp4"
     title: "Utilisation de l'interface"
     description: "Relations, fiches de personnages, évolution, haut faits... un menu riche et des stratégies diversifiées."
 features:
