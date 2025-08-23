@@ -55,10 +55,6 @@ characters:
     description: "Prêtre naïf dévoué à Lumina"
 ---
 
-# {{ page.title }}
-
-> **{{ page.tagline }}**
-
 ## L'Innovation au cœur du gameplay
 
 **Corayne** révolutionne le visual novel avec son **système de dialogue à quatre perspectives**. À chaque interaction, choisissez quel membre de votre groupe prend la parole :
