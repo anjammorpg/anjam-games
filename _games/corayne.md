@@ -13,7 +13,6 @@ cover_image: "/assets/images/corayne/cover.jpg"
 screenshots:
   - "/assets/images/corayne/screenshot-dialogues.jpg"
   - "/assets/images/corayne/screenshot-test.jpg"
-  - "/assets/images/corayne/screenshot-dialogue.jpg"
   - "/assets/images/corayne/screenshot-combat.jpg"
   - "/assets/images/corayne/screenshot-menu.jpg"
   - "/assets/images/corayne/screenshot-perso.jpg"
