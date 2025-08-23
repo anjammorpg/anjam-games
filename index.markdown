@@ -10,7 +10,17 @@ J'aime créer des histoires interactives qui mélangent émotion, mystère et pe
 
 ## Mes dernières créations
 
-*[Ici apparaîtront bientôt tes jeux !]*
+### 🏰 [Corayne, la cité d'écumes](/games/corayne/)
+**Visual Novel RPG** - Un système de dialogue révolutionnaire où vous incarnez tour à tour quatre héros aux personnalités uniques. Plongez dans un univers médiéval-fantastique riche en mystères !
+
+### 🎲 [Mini-Jeux](/games/)
+**Puzzle Games, Cartes, Match-3...** - Collection de mini-jeux intégrés conçus pour enrichir l'expérience visual novel.
+
+*[Plus de projets à venir...]*
+
+---
+
+**🎮 [Voir toutes mes créations →](/games/)**
 
 ## Où me trouver ?
 
