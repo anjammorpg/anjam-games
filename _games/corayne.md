@@ -37,6 +37,9 @@ videos:
   - path: "/assets/videos/corayne/system-menu.mp4"
     title: "Utilisation de l'interface"
     description: "Relations, fiches de personnages, évolution, haut faits... un menu riche et des stratégies diversifiées."
+  - path: "/assets/videos/corayne/system-niveau.mp4"
+    title: "Progression des compétences"
+    description: "Chaque nuit, faites évoluer vos personnages selon vos envies en dépensant leurs points de rêve."
 features:
   - "Système de combat tour par tour intégré"
   - "Système de relations complexe entre personnages"
