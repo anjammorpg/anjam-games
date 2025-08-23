@@ -2,7 +2,7 @@
 layout: game
 title: "Corayne, la cité d'écumes"
 subtitle: "Visual Novel RPG - Fantastique Médiéval"
-tagline: "Plongez dans l'univers de Corayne, cité des écumes et des mystères. Incarnez un groupe de quatre aventuriers aux destins liés dans cette épopée mêlant visual novel et RPG."
+tagline: "Quatre âmes, une cité mystérieuse, des choix qui façonnent le destin. Chaque voix compte dans l'épopée de Corayne."
 status: "En développement actif"
 genre: "Visual Novel RPG, Fantastique"
 engine: "Ren'Py + Python"
@@ -24,22 +24,22 @@ screenshots:
 videos:
   - path: "/assets/videos/corayne/system-dialogue.mp4"
     title: "Système de dialogue innovant"
-    description: "Choisissez quel personnage prend la parole - chaque héros apporte sa perspective unique"
+    description: "Choisissez qui prend la parole - chaque héros apporte sa perspective unique"
   - path: "/assets/videos/corayne/system-combat.mp4"
     title: "Combat tour par tour"
     description: "Système de combat intégré avec progression RPG"
   - path: "/assets/videos/corayne/system-codex.mp4"
-    title: "Objets Caché et Codex"
-    description: "Découvrez le lore de Corayne et réecoutez vos chansons favorites !"
+    title: "Objets Cachés et Codex"
+    description: "Découvrez le lore de Corayne et réécoutez vos chansons favorites"
   - path: "/assets/videos/corayne/system-map.mp4"
-    title: "Une gestion claire de temps et des déplacements"
-    description: "Vagabondez à l'envie... ou foncez vers la prochaine quête !"
+    title: "Une gestion claire du temps et des déplacements"
+    description: "Vagabondez à l'envie... ou foncez vers la prochaine quête"
   - path: "/assets/videos/corayne/system-menu.mp4"
     title: "Utilisation de l'interface"
-    description: "Relations, fiches de personnages, évolution, haut faits... un menu riche et des stratégies diversifiées."
+    description: "Relations, fiches de personnages, évolution, hauts faits..."
   - path: "/assets/videos/corayne/system-niveau.mp4"
     title: "Progression des compétences"
-    description: "Chaque nuit, faites évoluer vos personnages selon vos envies en dépensant leurs points de rêve."
+    description: "Chaque nuit, faites évoluer vos personnages en dépensant leurs points de rêve"
 features:
   - "Système de combat tour par tour intégré"
   - "Système de relations complexe entre personnages"
@@ -58,62 +58,66 @@ characters:
     description: "Prêtre naïf dévoué à Lumina"
 ---
 
-## L'Innovation au cœur du gameplay
+## Le 4ème de LuneSaphir, à l'heure de la Reine
 
-**Corayne** révolutionne le visual novel avec son **système de dialogue à quatre perspectives**. À chaque interaction, choisissez quel membre de votre groupe prend la parole :
+*"Corayne... La cité qui n'a jamais plié le genou. Protégée par sa barrière de corail, elle se dresse fière face aux tempêtes et aux conquérants. C'est là qu'Eamon m'a appelée, après toutes ces années..."*  
+— **Elara**, cheffe d'expédition
 
-- **Brynn** la guerrière : approche directe et courageuse
-- **Elara** la mage : analyse rationnelle et diplomatie
-- **Kaelen** le prêtre : compassion et idéalisme
-- **Sasha** la roublarde : ruse et pragmatisme cynique
+La cité d'écumes vous attend. Dans ce visual novel RPG, incarnez quatre aventuriers aux destins entrelacés, arrivés à Corayne alors que d'anciens secrets murmurent depuis les profondeurs. Une lettre d'un vieil érudit mourant les a menés ici, au 4ème jour de LuneSaphir 1253 AS, à l'heure où le soleil culmine sur la baie du Couchant.
 
-Chaque choix de personnage influence l'histoire, les relations et ouvre des chemins narratifs uniques !
+## Quatre voix, mille chemins
 
-## L'Univers de Corayne
+*"J'ai survécu dans les bas-fonds en devenant meilleure que les autres. Plus rapide pour voler, plus rusée pour mentir. Cette bande d'idéalistes ? Un vrai spectacle ambulant !"*  
+— **Sasha**, l'ombre qui suit
 
-Plongez dans un monde de fantasy médiévale où magie et politique s'entremêlent. La **cité d'écumes** vous accueille dans un univers riche où mystères anciens et enjeux contemporains se mélangent.
+Chaque rencontre, chaque dialogue devient une symphonie à quatre voix. Qui parlera au marchand Kelpien des Négociants des Marées ? 
 
-### ⚔️ Un RPG Complet Intégré
+- **Brynn** défoncera-t-elle la porte avec sa franchise légendaire ?
+- **Elara** négociera-t-elle avec trois siècles de sagesse elfique ?
+- **Kaelen** invoquera-t-il la bienveillance de Lumina, le Phare de l'Âme ?
+- **Sasha** glissera-t-elle quelques pièces pour délier les langues ?
 
-**Corayne** va bien au-delà du visual novel classique :
+Votre choix n'est pas cosmétique. Chaque personnage transforme l'histoire, ouvre des portes différentes, révèle des secrets cachés. Les Scribes de l'Ombre ne parlent qu'aux rusés. Le Scolarium des Échos s'ouvre aux érudits. Les Acolytes du Corail respectent la foi.
 
-{% for feature in page.features %}
-- {{ feature }}
-{% endfor %}
+## Une cité vivante sous l'œil des dieux
 
-### 👥 Personnages Mémorables
+*"Quel bonheur de pouvoir visiter le grand temple de Lumina à Corayne ! Mon cœur déborde d'allégresse. Cette aventure est un dessein de ma déesse."*  
+— **Kaelen**, prêtre de Lumina
 
-Rencontrez des compagnons aux personnalités uniques :
+De l'heure du Vaisseau à celle de l'Araignée, explorez Corayne à votre rythme. Les Élus draconides arpentent les Hautes Citadelles. Les Gidéens négocient dans les marchés flottants. Les Coraliens tissent leur magie dans les récifs. Cinq guildes majeures tirent les ficelles du pouvoir, tandis qu'Aelys le Courant Profond, Velys l'Éclat du Marché et Lumina veillent sur leurs fidèles.
 
-{% for character in page.characters %}
-**{{ character.name }}** - {{ character.description }}
-{% endfor %}
+## Les murmures d'Ondamar
 
-## Galerie
+*"Je la protégerai, quoi qu'il arrive. Ma sœur a changé, la vie dans les bas-fonds l'a endurcie. Mais elle reste ma sœur."*  
+— **Brynn**, guerrière au grand cœur
 
-*[Ici apparaîtront tes magnifiques screenshots]*
+Une quête de 38 jours vous attend. D'anciens secrets dorment sous les vagues. Ondamar, la cité engloutie, murmure dans les rêves des Coraliens. Trois clés perdues. Cinq actes. Des choix qui transformeront à jamais le destin de Myrea.
 
-## Informations Techniques
+## Un RPG complet dans l'âme d'un visual novel
 
-- **Moteur** : {{ page.engine }}
-- **Langue** : {{ page.language }}
-- **Genre** : {{ page.genre }}
-- **Statut** : {{ page.status }}
+Quand l'heure du Serpent cède place au Poisson, quand vos héros ferment les yeux sous le regard du Roseau, leurs **points de rêve** s'accumulent. Façonnez leur destin :
 
-## Télécharger / Jouer
+- **Combats tactiques** au tour par tour contre les créatures des profondeurs
+- **Relations évolutives** entre des personnages aux passés entrelacés
+- **Exploration libre** de la cité - le temps ne s'écoule qu'aux moments clés
+- **Codex vivant** révélant l'histoire millénaire de Myrea
+- **Choix moraux** sans manichéisme - même les Ondiens avaient leurs raisons
 
-{% if page.demo_available %}
-🎮 **Démo disponible bientôt !**
+## L'appel des profondeurs
 
-- Version complète en développement
-- Démo jouable à venir sur itch.io
-- Suivez le développement sur ce site
-{% endif %}
+*"Cette merveilleuse symphonie d'âmes différentes ! Sous l'armure de Brynn se cache un cœur généreux. En Sasha, je vois une âme tourmentée que la vie n'a pas épargnée."*  
+— Les pensées secrètes du journal
+
+Depuis les Jardins Immergés jusqu'au Cœur d'Ondamar, depuis les ruelles sombres jusqu'aux Hautes Citadelles, chaque lieu cache ses mystères. Les Passagers du Vent cartographient l'inconnu. Les Négociants des Marées contrôlent les richesses. Et quelque part, un vieil érudit mourant détient la première pièce du puzzle.
+
+La barrière de corail protège Corayne depuis des siècles. Mais certains secrets ne peuvent rester engloutis éternellement.
+
+**Oserez-vous plonger dans les écumes ?**
 
 ---
 
-### Devlog & Coulisses
+### Journal de développement
 
-*Découvrez les coulisses du développement, les défis techniques et créatifs rencontrés lors de la création de ce visual novel RPG unique.*
+*Le développement de Corayne progresse au rythme des marées. Chaque système, chaque mécanisme est pensé pour servir la narration. Suivez l'aventure de sa création, des premières lignes de code aux dernières notes de la bande-son.*
 
 [← Retour aux créations](/games/)
