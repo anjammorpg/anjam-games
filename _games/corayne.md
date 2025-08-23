@@ -2,7 +2,7 @@
 layout: game
 title: "Corayne, la cité d'écumes"
 subtitle: "Visual Novel RPG - Fantastique Médiéval"
-tagline: "Plongez dans l'univers de Corayne, cité des écumes et des mystères. Incarnez tour à tour quatre aventuriers aux destins liés dans cette épopée mêlant visual novel et RPG."
+tagline: "Plongez dans l'univers de Corayne, cité des écumes et des mystères. Incarnez un groupe de quatre aventuriers aux destins liés dans cette épopée mêlant visual novel et RPG."
 status: "En développement actif"
 genre: "Visual Novel RPG, Fantastique"
 engine: "Ren'Py + Python"
@@ -46,13 +46,13 @@ features:
   - "Interface immersive style parchemin"
 characters:
   - name: "Brynn"
-    description: "Guerrière au passé mystérieux"
+    description: "Barbare franche et farouche au grand coeur"
   - name: "Elara" 
-    description: "Mage aux pouvoirs élémentaires"
+    description: "Mage érudite aux pouvoirs élémentaires"
   - name: "Sasha"
-    description: "Compagne loyale"
+    description: "Voleuse cynique et manipulatrice"
   - name: "Kaelen"
-    description: "Clerc dévoué à Lumina"
+    description: "Prêtre naïf dévoué à Lumina"
 ---
 
 # {{ page.title }}
