@@ -1,0 +1,270 @@
+---
+layout: default
+---
+
+<article class="game-page">
+  {% if page.cover_image %}
+  <div class="game-cover">
+    <img src="{{ page.cover_image | relative_url }}" alt="Image de couverture de {{ page.title }}">
+    <div class="cover-overlay">
+      <h1>{{ page.title }}</h1>
+      {% if page.tagline %}
+        <p class="game-tagline">{{ page.tagline }}</p>
+      {% endif %}
+    </div>
+  </div>
+  {% else %}
+  <header class="game-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.tagline %}
+      <p class="game-tagline">{{ page.tagline }}</p>
+    {% endif %}
+    
+    <div class="game-meta">
+      <span class="status status-{{ page.status | slugify }}">{{ page.status }}</span>
+      <span class="genre">{{ page.genre }}</span>
+    </div>
+  </header>
+  {% endif %}
+
+  <div class="game-content">
+    {{ content }}
+  </div>
+
+  {% if page.videos %}
+  <section class="gameplay-videos">
+    <h2>🎬 Gameplay en action</h2>
+    <div class="video-grid">
+      {% for video in page.videos %}
+      <div class="video-item">
+        <video controls poster="{{ video.path | replace: '.mp4', '-poster.jpg' | relative_url }}" preload="metadata">
+          <source src="{{ video.path | relative_url }}" type="video/mp4">
+          Votre navigateur ne supporte pas les vidéos HTML5.
+        </video>
+        <div class="video-info">
+          <h3>{{ video.title }}</h3>
+          <p>{{ video.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.screenshots %}
+  <section class="screenshots">
+    <h2>📸 Captures d'écran</h2>
+    <div class="screenshot-gallery">
+      {% for screenshot in page.screenshots %}
+        <img src="{{ screenshot | relative_url }}" alt="Capture d'écran de {{ page.title }}" loading="lazy">
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <aside class="game-sidebar">
+    <div class="game-info-box">
+      <h3>Informations</h3>
+      <ul>
+        {% if page.engine %}<li><strong>Moteur:</strong> {{ page.engine }}</li>{% endif %}
+        {% if page.language %}<li><strong>Langue:</strong> {{ page.language }}</li>{% endif %}
+        {% if page.release_date %}<li><strong>Sortie:</strong> {{ page.release_date }}</li>{% endif %}
+      </ul>
+    </div>
+
+    <div class="game-actions">
+      {% if page.demo_available %}
+        <a href="#" class="btn btn-primary">🎮 Jouer à la démo</a>
+      {% endif %}
+      <a href="#" class="btn btn-secondary">📱 Voir sur itch.io</a>
+      <a href="/devlog/" class="btn btn-tertiary">📝 Suivre le développement</a>
+    </div>
+  </aside>
+</article>
+
+<style>
+.game-cover {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+}
+
+.game-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.game-tagline {
+  font-style: italic;
+  font-size: 1.1em;
+  margin: 1rem 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.game-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #8B4513, #D2B48C);
+  color: white;
+  border-radius: 10px;
+}
+
+.game-meta {
+  margin-top: 1rem;
+}
+
+.status {
+  padding: 0.3rem 1rem;
+  border-radius: 15px;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.status-en-développement-actif {
+  background: #28a745;
+  color: white;
+}
+
+.genre {
+  background: #6c757d;
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 15px;
+}
+
+/* Styles vidéo */
+.gameplay-videos {
+  margin: 3rem 0;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.video-item {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.video-item video {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.video-info h3 {
+  margin: 0.5rem 0;
+  color: #8B4513;
+}
+
+.video-info p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.screenshot-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.screenshot-gallery img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.screenshot-gallery img:hover {
+  transform: scale(1.05);
+}
+
+.game-info-box {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.game-actions {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #8B4513;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #A0522D;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #545b62;
+}
+
+.btn-tertiary {
+  background: #17a2b8;
+  color: white;
+}
+
+.btn-tertiary:hover {
+  background: #138496;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .screenshot-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .game-cover {
+    height: 250px;
+  }
+}
+</style>
