@@ -2,14 +2,27 @@
 layout: default
 ---
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Alegreya:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
 <article class="game-page">
   {% if page.cover_image %}
   <div class="game-cover">
+    <div class="stars-layer"></div>
+    <div class="aurora-layer"></div>
     <img src="{{ page.cover_image | relative_url }}" alt="Image de couverture de {{ page.title }}">
     <div class="cover-overlay">
       <h1>{{ page.title }}</h1>
       {% if page.tagline %}
+        <div class="flourish-top">❦ ❦ ❦</div>
         <p class="game-tagline">{{ page.tagline }}</p>
+        <div class="flourish-bottom">❦ ❦ ❦</div>
       {% endif %}
     </div>
   </div>
@@ -33,14 +46,21 @@ layout: default
 
   {% if page.videos %}
   <section class="gameplay-videos">
-    <h2>🎬 Gameplay en action</h2>
+    <h2 class="section-title">
+      <span class="flourish-left"></span>
+      Gameplay en action
+      <span class="flourish-right"></span>
+    </h2>
     <div class="video-grid">
       {% for video in page.videos %}
       <div class="video-item">
-        <video controls poster="{{ video.path | replace: '.mp4', '-poster.jpg' | relative_url }}" preload="metadata">
-          <source src="{{ video.path | relative_url }}" type="video/mp4">
-          Votre navigateur ne supporte pas les vidéos HTML5.
-        </video>
+        <div class="video-wrapper">
+          <video controls poster="{{ video.path | replace: '.mp4', '-poster.jpg' | relative_url }}" preload="metadata">
+            <source src="{{ video.path | relative_url }}" type="video/mp4">
+            Votre navigateur ne supporte pas les vidéos HTML5.
+          </video>
+          <div class="video-glow"></div>
+        </div>
         <div class="video-info">
           <h3>{{ video.title }}</h3>
           <p>{{ video.description }}</p>
@@ -53,49 +73,133 @@ layout: default
 
   {% if page.screenshots %}
   <section class="screenshots">
-    <h2>📸 Captures d'écran</h2>
+    <h2 class="section-title">
+      <span class="flourish-left"></span>
+      Captures d'écran
+      <span class="flourish-right"></span>
+    </h2>
     <div class="screenshot-gallery">
       {% for screenshot in page.screenshots %}
-        <img src="{{ screenshot | relative_url }}" alt="Capture d'écran de {{ page.title }}" loading="lazy">
+        <div class="screenshot-item" onclick="openLightbox('{{ screenshot | relative_url }}')">
+          <img src="{{ screenshot | relative_url }}" alt="Capture d'écran de {{ page.title }}" loading="lazy">
+          <div class="screenshot-overlay">
+            <span class="view-icon">⊕</span>
+          </div>
+        </div>
       {% endfor %}
     </div>
   </section>
   {% endif %}
 
-  <aside class="game-sidebar">
-    <div class="game-info-box">
-      <h3>Informations</h3>
-      <ul>
-        {% if page.engine %}<li><strong>Moteur:</strong> {{ page.engine }}</li>{% endif %}
-        {% if page.language %}<li><strong>Langue:</strong> {{ page.language }}</li>{% endif %}
-        {% if page.release_date %}<li><strong>Sortie:</strong> {{ page.release_date }}</li>{% endif %}
-      </ul>
+  <!-- Lightbox pour la galerie -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox">×</span>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-nav">
+      <span class="nav-prev" onclick="navigateLightbox(event, -1)">‹</span>
+      <span class="nav-next" onclick="navigateLightbox(event, 1)">›</span>
     </div>
+  </div>
 
-    <div class="game-actions">
-      {% if page.demo_available %}
-        <a href="#" class="btn btn-primary">🎮 Jouer à la démo</a>
-      {% endif %}
-      <a href="#" class="btn btn-secondary">📱 Voir sur itch.io</a>
-      <a href="/devlog/" class="btn btn-tertiary">📝 Suivre le développement</a>
+  <!-- Sidebar flottante -->
+  <aside class="game-sidebar floating">
+    <div class="sidebar-content">
+      <div class="game-info-box">
+        <h3>Informations</h3>
+        <div class="info-divider"></div>
+        <ul>
+          {% if page.engine %}<li><strong>Moteur:</strong> {{ page.engine }}</li>{% endif %}
+          {% if page.language %}<li><strong>Langue:</strong> {{ page.language }}</li>{% endif %}
+          {% if page.release_date %}<li><strong>Sortie:</strong> {{ page.release_date }}</li>{% endif %}
+        </ul>
+      </div>
+
+      <div class="game-actions">
+        {% if page.demo_available %}
+          <a href="#" class="btn btn-primary">
+            <span class="btn-glow"></span>
+            Jouer à la démo
+          </a>
+        {% endif %}
+        <a href="#" class="btn btn-secondary">
+          Voir sur itch.io
+        </a>
+        <a href="/devlog/" class="btn btn-tertiary">
+          Suivre le développement
+        </a>
+      </div>
     </div>
   </aside>
 </article>
 
 <style>
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Alegreya', serif;
+  background: linear-gradient(180deg, #0a0e27 0%, #1a3a52 40%, #2a5a7f 70%, #4a8aaf 100%);
+  color: #e8f4f8;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ========== BACKGROUND EFFECTS ========== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at top, transparent 0%, rgba(74,138,175,0.2) 100%),
+    radial-gradient(ellipse at bottom, rgba(42,90,127,0.3) 0%, transparent 100%);
+  pointer-events: none;
+  animation: aurora 15s ease-in-out infinite;
+}
+
+/* ========== GAME COVER ========== */
 .game-cover {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 500px;
   overflow: hidden;
-  border-radius: 15px;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+.stars-layer {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="1" fill="white" opacity="0.8"/><circle cx="50" cy="50" r="0.5" fill="white" opacity="0.5"/><circle cx="150" cy="150" r="0.7" fill="white" opacity="0.6"/></svg>');
+  background-size: 200px 200px;
+  animation: twinkle 50s linear infinite;
+  z-index: 1;
+}
+
+.aurora-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center top, rgba(74,138,175,0.3) 0%, transparent 60%);
+  animation: aurora 20s ease-in-out infinite;
+  z-index: 2;
 }
 
 .game-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative;
+  z-index: 0;
 }
 
 .cover-overlay {
@@ -103,168 +207,604 @@ layout: default
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  background: linear-gradient(transparent, rgba(10,14,39,0.95));
   color: white;
-  padding: 2rem;
+  padding: 3rem 2rem;
   text-align: center;
+  z-index: 3;
+}
+
+.cover-overlay h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 4em;
+  background: linear-gradient(45deg, #87CEEB, #E0FFFF, #B0E0E6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(135,206,235,0.5));
+  margin-bottom: 1.5rem;
+  animation: glow 4s ease-in-out infinite;
+}
+
+/* ========== FLOURISHES ========== */
+.flourish-top, .flourish-bottom {
+  font-size: 1.2em;
+  color: rgba(135,206,235,0.4);
+  letter-spacing: 1em;
+  margin: 0.5rem 0;
+}
+
+.flourish-left, .flourish-right {
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(135,206,235,0.3), transparent);
+  vertical-align: middle;
+  margin: 0 1rem;
+}
+
+.flourish-left {
+  background: linear-gradient(90deg, transparent, rgba(135,206,235,0.3));
+}
+
+.flourish-right {
+  background: linear-gradient(90deg, rgba(135,206,235,0.3), transparent);
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3 {
+  font-family: 'Cinzel', serif;
 }
 
 .game-tagline {
+  font-family: 'Alegreya', serif;
   font-style: italic;
-  font-size: 1.1em;
-  margin: 1rem 0;
+  font-size: 1.4em;
+  color: #B0E0E6;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  line-height: 1.8;
+  text-shadow: 0 0 10px rgba(176,224,230,0.3);
 }
 
-.game-header {
+.section-title {
+  font-size: 2.5em;
+  background: linear-gradient(90deg, #87CEEB, #B0E0E6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-align: center;
-  margin-bottom: 2rem;
-  padding: 2rem;
-  background: linear-gradient(135deg, #8B4513, #D2B48C);
-  color: white;
-  border-radius: 10px;
+  margin: 3rem 0 2rem;
+  position: relative;
+  filter: drop-shadow(0 0 20px rgba(135,206,235,0.3));
 }
 
-.game-meta {
-  margin-top: 1rem;
+/* ========== GAME CONTENT ========== */
+.game-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(10,14,39,0.8) 0%, rgba(26,58,82,0.8) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(135,206,235,0.2);
+  border-radius: 30px;
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,0.6),
+    inset 0 0 120px rgba(135,206,235,0.03);
+  position: relative;
 }
 
-.status {
-  padding: 0.3rem 1rem;
-  border-radius: 15px;
-  font-weight: bold;
-  margin-right: 1rem;
+.game-content p {
+  line-height: 1.9;
+  color: #c8e6f5;
+  font-size: 1.1em;
 }
 
-.status-en-développement-actif {
-  background: #28a745;
-  color: white;
-}
-
-.genre {
-  background: #6c757d;
-  color: white;
-  padding: 0.3rem 1rem;
-  border-radius: 15px;
-}
-
-/* Styles vidéo */
+/* ========== VIDEO SECTION ========== */
 .gameplay-videos {
-  margin: 3rem 0;
+  margin: 4rem auto;
+  max-width: 1400px;
+  padding: 0 2rem;
 }
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0;
 }
 
 .video-item {
-  background: #f8f9fa;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, rgba(10,14,39,0.9) 0%, rgba(26,58,82,0.7) 100%);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(135,206,235,0.2);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.video-item video {
+.video-item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(135,206,235,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.video-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+  border-color: rgba(135,206,235,0.4);
+}
+
+.video-item:hover::before {
+  opacity: 1;
+}
+
+.video-wrapper {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.video-wrapper video {
   width: 100%;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  border-radius: 15px;
+  display: block;
+}
+
+.video-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 30px rgba(135,206,235,0.2);
+  border-radius: 15px;
+  pointer-events: none;
 }
 
 .video-info h3 {
-  margin: 0.5rem 0;
-  color: #8B4513;
+  font-family: 'Cinzel', serif;
+  color: #87CEEB;
+  font-size: 1.4em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(135,206,235,0.3);
 }
 
 .video-info p {
-  margin: 0;
-  color: #666;
-  font-size: 0.9em;
+  color: #B4E7F8;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* ========== SCREENSHOT GALLERY ========== */
+.screenshots {
+  margin: 4rem auto;
+  max-width: 1400px;
+  padding: 0 2rem;
 }
 
 .screenshot-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  margin: 2rem 0;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
 }
 
-.screenshot-gallery img {
+.screenshot-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(135,206,235,0.1);
+}
+
+.screenshot-item img {
   width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-.screenshot-gallery img:hover {
-  transform: scale(1.05);
+.screenshot-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(10,14,39,0.7) 0%, rgba(10,14,39,0.4) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(3px);
 }
 
-.game-info-box {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 2rem 0;
+.view-icon {
+  font-size: 3em;
+  color: #87CEEB;
+  text-shadow: 0 0 20px rgba(135,206,235,0.8);
 }
 
-.game-actions {
+.screenshot-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+  border-color: rgba(135,206,235,0.3);
+}
+
+.screenshot-item:hover img {
+  transform: scale(1.1);
+}
+
+.screenshot-item:hover .screenshot-overlay {
+  opacity: 1;
+}
+
+/* ========== LIGHTBOX ========== */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10,14,39,0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+  border: 2px solid rgba(135,206,235,0.3);
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 3em;
+  color: #87CEEB;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(135,206,235,0.5);
+}
+
+.close-lightbox:hover {
+  transform: rotate(90deg);
+  color: #E0FFFF;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  pointer-events: none;
+}
+
+.nav-prev, .nav-next {
+  font-size: 4em;
+  color: #87CEEB;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 20px rgba(135,206,235,0.5);
+  pointer-events: all;
+}
+
+.nav-prev:hover, .nav-next:hover {
+  transform: scale(1.2);
+  color: #E0FFFF;
+}
+
+/* ========== FLOATING SIDEBAR ========== */
+.game-sidebar.floating {
+  position: sticky;
+  top: 100px;
+  float: right;
+  width: 320px;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar-content {
+  background: linear-gradient(135deg, rgba(10,14,39,0.85) 0%, rgba(26,58,82,0.85) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(135,206,235,0.2);
+  border-radius: 25px;
+  padding: 2rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  transition: all 0.4s ease;
+}
+
+.sidebar-content:hover {
+  box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+  border-color: rgba(135,206,235,0.3);
+}
+
+.game-info-box h3 {
+  font-family: 'Cinzel', serif;
+  color: #87CEEB;
+  font-size: 1.6em;
+  margin-bottom: 1rem;
   text-align: center;
-  margin: 2rem 0;
+  text-shadow: 0 0 15px rgba(135,206,235,0.4);
+}
+
+.info-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(135,206,235,0.3), transparent);
+  margin: 1rem 0 1.5rem;
+}
+
+.game-info-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.game-info-box li {
+  padding: 0.8rem 0;
+  color: #B4E7F8;
+  font-size: 1.05em;
+  border-bottom: 1px solid rgba(135,206,235,0.1);
+}
+
+.game-info-box li:last-child {
+  border-bottom: none;
+}
+
+.game-info-box strong {
+  color: #87CEEB;
+  margin-right: 0.5rem;
+}
+
+/* ========== BUTTONS ========== */
+.game-actions {
+  margin-top: 2rem;
 }
 
 .btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
   text-decoration: none;
-  font-weight: bold;
-  margin: 0.5rem;
+  font-weight: 500;
+  font-family: 'Cinzel', serif;
+  margin: 1rem 0;
   transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
 }
 
 .btn-primary {
-  background: #8B4513;
-  color: white;
+  background: linear-gradient(135deg, #2a5a7f 0%, #4a8aaf 100%);
+  color: #E0FFFF;
+  border-color: rgba(135,206,235,0.3);
+  box-shadow: 0 5px 20px rgba(74,138,175,0.4);
 }
 
 .btn-primary:hover {
-  background: #A0522D;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(74,138,175,0.6);
+  border-color: rgba(135,206,235,0.5);
+}
+
+.btn-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(135,206,235,0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.btn-primary:hover .btn-glow {
+  width: 300px;
+  height: 300px;
 }
 
 .btn-secondary {
-  background: #6c757d;
-  color: white;
+  background: linear-gradient(135deg, rgba(26,58,82,0.8) 0%, rgba(42,90,127,0.8) 100%);
+  color: #B4E7F8;
+  border-color: rgba(135,206,235,0.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 .btn-secondary:hover {
-  background: #545b62;
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, rgba(26,58,82,1) 0%, rgba(42,90,127,1) 100%);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
 }
 
 .btn-tertiary {
-  background: #17a2b8;
-  color: white;
+  background: transparent;
+  color: #87CEEB;
+  border-color: rgba(135,206,235,0.3);
+  box-shadow: inset 0 0 20px rgba(135,206,235,0.1);
 }
 
 .btn-tertiary:hover {
-  background: #138496;
+  background: rgba(135,206,235,0.1);
+  border-color: rgba(135,206,235,0.5);
+  box-shadow: 
+    inset 0 0 30px rgba(135,206,235,0.2),
+    0 5px 20px rgba(135,206,235,0.3);
+  transform: translateY(-3px);
 }
 
-/* Responsive */
+/* ========== STATUS BADGES ========== */
+.game-meta {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.status, .genre {
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.95em;
+  border: 1px solid rgba(135,206,235,0.2);
+  backdrop-filter: blur(10px);
+}
+
+.status-en-développement-actif {
+  background: linear-gradient(135deg, rgba(40,167,69,0.3) 0%, rgba(40,167,69,0.1) 100%);
+  color: #5dffaa;
+  box-shadow: 0 0 20px rgba(40,167,69,0.3);
+}
+
+.genre {
+  background: linear-gradient(135deg, rgba(42,90,127,0.3) 0%, rgba(42,90,127,0.1) 100%);
+  color: #87CEEB;
+  box-shadow: 0 0 20px rgba(135,206,235,0.2);
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes aurora {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes twinkle {
+  0% { transform: rotate(0deg) translateX(0); }
+  100% { transform: rotate(360deg) translateX(100px); }
+}
+
+@keyframes glow {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 30px rgba(135,206,235,0.5)); }
+  50% { filter: brightness(1.2) drop-shadow(0 0 50px rgba(135,206,235,0.8)); }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1200px) {
+  .game-sidebar.floating {
+    position: relative;
+    float: none;
+    width: 100%;
+    margin: 3rem auto;
+    max-width: 600px;
+  }
+}
+
 @media (max-width: 768px) {
+  .game-cover {
+    height: 350px;
+  }
+  
+  .cover-overlay h1 {
+    font-size: 2.5em;
+  }
+  
   .video-grid {
     grid-template-columns: 1fr;
   }
   
   .screenshot-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
   
-  .game-cover {
-    height: 250px;
+  .section-title {
+    font-size: 1.8em;
+  }
+  
+  .flourish-left, .flourish-right {
+    width: 30px;
   }
 }
 </style>
+
+<script>
+// Lightbox functionality
+let currentImageIndex = 0;
+let galleryImages = [];
+
+function openLightbox(imageSrc) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  
+  // Collect all gallery images
+  galleryImages = Array.from(document.querySelectorAll('.screenshot-item img')).map(img => img.src);
+  currentImageIndex = galleryImages.indexOf(imageSrc);
+  
+  lightboxImg.src = imageSrc;
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function navigateLightbox(event, direction) {
+  event.stopPropagation();
+  currentImageIndex += direction;
+  
+  if (currentImageIndex < 0) {
+    currentImageIndex = galleryImages.length - 1;
+  } else if (currentImageIndex >= galleryImages.length) {
+    currentImageIndex = 0;
+  }
+  
+  document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
+}
+
+// Parallax effect on scroll
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  const parallax = document.querySelector('.stars-layer');
+  if (parallax) {
+    parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+  }
+});
+
+// Add subtle animation on sidebar scroll
+window.addEventListener('scroll', () => {
+  const sidebar = document.querySelector('.game-sidebar.floating');
+  if (sidebar && window.innerWidth > 1200) {
+    const scrolled = window.pageYOffset;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = scrolled / maxScroll;
+    
+    if (scrollPercent > 0.1 && scrollPercent < 0.9) {
+      sidebar.style.transform = `translateY(${Math.sin(scrollPercent * Math.PI) * 10}px)`;
+    }
+  }
+});
+</script>
+
+</body>
+</html>
