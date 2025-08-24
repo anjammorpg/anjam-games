@@ -50,25 +50,49 @@ features:
 characters:
   - name: "Brynn"
     description: "Barbare franche et farouche au grand coeur"
+    portrait: "/assets/images/corayne/char/ui_portrait_brynn.jpg"
+    title: "Guerrière du Nord"
   - name: "Elara" 
     description: "Mage érudite aux pouvoirs élémentaires"
+    portrait: "/assets/images/corayne/char/ui_portrait_elara.jpg"
+    title: "Cheffe d'expédition"
   - name: "Sasha"
     description: "Voleuse cynique et manipulatrice"
+    portrait: "/assets/images/corayne/char/ui_portrait_sasha.jpg"
+    title: "L'ombre qui suit"
   - name: "Kaelen"
     description: "Prêtre naïf dévoué à Lumina"
+    portrait: "/assets/images/corayne/char/ui_portrait_kaelen.jpg"
+    title: "Prêtre de Lumina"
 ---
 
 ## Sur le ponton du Port de la Marée Basse
 
-*"Corayne... La cité qui n'a jamais plié le genou. Protégée par sa barrière de corail, elle se dresse fière face aux tempêtes et aux conquérants. C'est là qu'Eamon m'a appelée, après toutes ces années..."*  
-— **Elara**, cheffe d'expédition
+<div class="character-quote">
+  <div class="character-portrait">
+    <img src="/assets/images/corayne/char/ui_portrait_elara.jpg" alt="Portrait d'Elara">
+  </div>
+  <div class="character-text">
+    <p>"Corayne... La cité qui n'a jamais plié le genou. Protégée par sa barrière de corail, elle se dresse fière face aux tempêtes et aux conquérants. C'est là qu'Eamon m'a appelée, après toutes ces années..."</p>
+    <div class="character-name">Elara</div>
+    <div class="character-title">Cheffe d'expédition</div>
+  </div>
+</div>
 
 La cité d'écumes vous attend. Dans ce visual novel RPG, incarnez quatre aventuriers aux destins entrelacés, arrivés à Corayne alors que d'anciens secrets murmurent depuis les profondeurs. Une lettre d'un vieil érudit mourant les a menés ici, au 4ème jour de LuneSaphir, 1253 Ans après l'assouppissement du dragon primordial Solmire, à l'heure où le soleil culmine sur la baie du Couchant.
 
 ## Quatre voix, mille chemins
 
-*"J'ai survécu dans les bas-fonds en devenant meilleure que les autres. Plus rapide pour voler, plus rusée pour mentir. Cette bande d'idéalistes ? Un vrai spectacle ambulant !"*  
-— **Sasha**, l'ombre qui suit
+<div class="character-quote">
+  <div class="character-portrait">
+    <img src="/assets/images/corayne/char/ui_portrait_sasha.jpg" alt="Portrait de Sasha">
+  </div>
+  <div class="character-text">
+    <p>"J'ai survécu dans les bas-fonds en devenant meilleure que les autres. Plus rapide pour voler, plus rusée pour mentir. Cette bande d'idéalistes ? Un vrai spectacle ambulant !"</p>
+    <div class="character-name">Sasha</div>
+    <div class="character-title">L'ombre qui suit</div>
+  </div>
+</div>
 
 Chaque rencontre, chaque dialogue devient une symphonie à quatre voix. Qui parlera au marchand Kelpien des Négociants des Marées ? 
 
@@ -81,15 +105,31 @@ Votre choix n'est pas cosmétique. Chaque personnage transforme l'histoire, ouvr
 
 ## Une cité vivante sous l'œil des dieux
 
-*"Quel bonheur de pouvoir visiter le grand temple de Lumina à Corayne ! Mon cœur déborde d'allégresse. Cette aventure est un dessein de ma déesse."*  
-— **Kaelen**, prêtre de Lumina
+<div class="character-quote">
+  <div class="character-portrait">
+    <img src="/assets/images/corayne/char/ui_portrait_kaelen.jpg" alt="Portrait de Kaelen">
+  </div>
+  <div class="character-text">
+    <p>"Quel bonheur de pouvoir visiter le grand temple de Lumina à Corayne ! Mon cœur déborde d'allégresse. Cette aventure est un dessein de ma déesse."</p>
+    <div class="character-name">Kaelen</div>
+    <div class="character-title">Prêtre de Lumina</div>
+  </div>
+</div>
 
 De l'heure du Vaisseau à celle de l'Araignée, explorez Corayne à votre rythme. Les Élus draconides arpentent les Hautes Citadelles. Les Gidéens négocient dans les marchés flottants. Les Coraliens tissent leur magie dans les récifs. Cinq guildes majeures tirent les ficelles du pouvoir, tandis qu'Aelys le Courant Profond, Velys l'Éclat du Marché et Lumina veillent sur leurs fidèles.
 
 ## Les murmures d'Ondamar
 
-*"Je la protégerai, quoi qu'il arrive. Ma sœur a changé, la vie dans les bas-fonds de Selm l'a endurcie. Mais elle reste ma sœur."*  
-— **Brynn**, guerrière au grand cœur
+<div class="character-quote">
+  <div class="character-portrait">
+    <img src="/assets/images/corayne/char/ui_portrait_brynn.jpg" alt="Portrait de Brynn">
+  </div>
+  <div class="character-text">
+    <p>"Je la protégerai, quoi qu'il arrive. Ma sœur a changé, la vie dans les bas-fonds de Selm l'a endurcie. Mais elle reste ma sœur."</p>
+    <div class="character-name">Brynn</div>
+    <div class="character-title">Guerrière au grand cœur</div>
+  </div>
+</div>
 
 Une quête de 38 jours vous attend. D'anciens secrets dorment sous les vagues. Ondamar, la cité engloutie, murmure dans les rêves des Coraliens. Trois clés perdues. Cinq actes. Des choix qui transformeront à jamais le destin de Myrea.
 
