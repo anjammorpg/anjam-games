@@ -298,6 +298,109 @@ h1, h2, h3 {
   font-size: 1.1em;
 }
 
+/* ========== CHARACTER QUOTES ========== */
+.character-quote {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(26,58,82,0.4) 0%, rgba(42,90,127,0.2) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(135,206,235,0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.character-quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #87CEEB, #B0E0E6);
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(135,206,235,0.5);
+}
+
+.character-portrait {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid rgba(135,206,235,0.3);
+  box-shadow: 
+    0 0 30px rgba(135,206,235,0.3),
+    inset 0 0 20px rgba(135,206,235,0.1);
+  transition: all 0.4s ease;
+}
+
+.character-portrait:hover {
+  transform: scale(1.1);
+  border-color: rgba(135,206,235,0.6);
+  box-shadow: 
+    0 0 40px rgba(135,206,235,0.5),
+    inset 0 0 30px rgba(135,206,235,0.2);
+}
+
+.character-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9) contrast(1.1);
+  transition: filter 0.4s ease;
+}
+
+.character-portrait:hover img {
+  filter: brightness(1.1) contrast(1.2);
+}
+
+.character-text {
+  flex: 1;
+}
+
+.character-text p {
+  margin: 0 0 1rem 0;
+  font-style: italic;
+  color: #E0F4FF;
+  font-size: 1.15em;
+  line-height: 1.7;
+}
+
+.character-name {
+  font-family: 'Cinzel', serif;
+  color: #87CEEB;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-shadow: 0 0 10px rgba(135,206,235,0.4);
+  margin: 0;
+}
+
+.character-title {
+  color: #B0E0E6;
+  font-size: 0.95em;
+  margin: 0.3rem 0 0 0;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .character-quote {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .character-portrait {
+    width: 80px;
+    height: 80px;
+  }
+}
+
 /* ========== VIDEO SECTION ========== */
 .gameplay-videos {
   margin: 4rem auto;
