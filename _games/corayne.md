@@ -58,12 +58,12 @@ characters:
     description: "Prêtre naïf dévoué à Lumina"
 ---
 
-## Le 4ème de LuneSaphir, à l'heure de la Reine
+## Arrivée sur le ponton du Port de la Marée Basse, à l'heure de la Reine
 
 *"Corayne... La cité qui n'a jamais plié le genou. Protégée par sa barrière de corail, elle se dresse fière face aux tempêtes et aux conquérants. C'est là qu'Eamon m'a appelée, après toutes ces années..."*  
 — **Elara**, cheffe d'expédition
 
-La cité d'écumes vous attend. Dans ce visual novel RPG, incarnez quatre aventuriers aux destins entrelacés, arrivés à Corayne alors que d'anciens secrets murmurent depuis les profondeurs. Une lettre d'un vieil érudit mourant les a menés ici, au 4ème jour de LuneSaphir 1253 AS, à l'heure où le soleil culmine sur la baie du Couchant.
+La cité d'écumes vous attend. Dans ce visual novel RPG, incarnez quatre aventuriers aux destins entrelacés, arrivés à Corayne alors que d'anciens secrets murmurent depuis les profondeurs. Une lettre d'un vieil érudit mourant les a menés ici, au 4ème jour de LuneSaphir, 1253 Ans après l'assouppissement du dragon primordial Solmire, à l'heure où le soleil culmine sur la baie du Couchant.
 
 ## Quatre voix, mille chemins
 
@@ -88,7 +88,7 @@ De l'heure du Vaisseau à celle de l'Araignée, explorez Corayne à votre rythme
 
 ## Les murmures d'Ondamar
 
-*"Je la protégerai, quoi qu'il arrive. Ma sœur a changé, la vie dans les bas-fonds l'a endurcie. Mais elle reste ma sœur."*  
+*"Je la protégerai, quoi qu'il arrive. Ma sœur a changé, la vie dans les bas-fonds de Selm l'a endurcie. Mais elle reste ma sœur."*  
 — **Brynn**, guerrière au grand cœur
 
 Une quête de 38 jours vous attend. D'anciens secrets dorment sous les vagues. Ondamar, la cité engloutie, murmure dans les rêves des Coraliens. Trois clés perdues. Cinq actes. Des choix qui transformeront à jamais le destin de Myrea.
@@ -105,14 +105,14 @@ Quand l'heure du Serpent cède place au Poisson, quand vos héros ferment les ye
 
 ## L'appel des profondeurs
 
-*"Cette merveilleuse symphonie d'âmes différentes ! Sous l'armure de Brynn se cache un cœur généreux. En Sasha, je vois une âme tourmentée que la vie n'a pas épargnée."*  
-— Les pensées secrètes du journal
+*"Les Hautes Citadelles... Toujours cette obsession des terres émergées. Les vrais mystères se trouvent sous les vagues, pas au-dessus."*  
+— **Eldrin Corailâme**, membre des acolytes du Corail
 
 Depuis les Jardins Immergés jusqu'au Cœur d'Ondamar, depuis les ruelles sombres jusqu'aux Hautes Citadelles, chaque lieu cache ses mystères. Les Passagers du Vent cartographient l'inconnu. Les Négociants des Marées contrôlent les richesses. Et quelque part, un vieil érudit mourant détient la première pièce du puzzle.
 
 La barrière de corail protège Corayne depuis des siècles. Mais certains secrets ne peuvent rester engloutis éternellement.
 
-**Oserez-vous plonger dans les écumes ?**
+**Oserez-vous plonger vers les abysses ?**
 
 ---
 
