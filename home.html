@@ -1,0 +1,770 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Alegreya:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="home-container">
+  <!-- Hero Section avec animation de particules -->
+  <section class="hero-section">
+    <div class="particles-container">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="title-line">Anjam</span>
+        <span class="title-line accent">Games</span>
+      </h1>
+      <p class="hero-subtitle">Créatrice d'histoires interactives</p>
+      <div class="hero-flourish">✦ ✦ ✦</div>
+    </div>
+    
+    <div class="hero-gradient"></div>
+  </section>
+
+  <!-- Content principal -->
+  <main class="main-content">
+    <div class="content-wrapper">
+      {{ content }}
+    </div>
+  </main>
+
+  <!-- Section Projets en vedette -->
+  <section class="featured-projects">
+    <h2 class="section-title">
+      <span class="title-decoration left"></span>
+      Projets en vedette
+      <span class="title-decoration right"></span>
+    </h2>
+    
+    <div class="projects-grid">
+      <!-- Carte Corayne -->
+      <article class="project-card featured">
+        <div class="card-glow"></div>
+        <div class="card-image">
+          <img src="/assets/images/corayne/cover.jpg" alt="Corayne">
+          <div class="card-overlay">
+            <span class="project-status">En développement</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>Corayne, la cité d'écumes</h3>
+          <p class="project-type">Visual Novel RPG • Médiéval Fantastique</p>
+          <p class="project-description">
+            Quatre héros, une cité mystérieuse. Incarnez tour à tour des personnages uniques dans un système de dialogue révolutionnaire.
+          </p>
+          <a href="/games/corayne/" class="card-link">
+            <span>Découvrir</span>
+            <svg class="arrow-icon" viewBox="0 0 24 24" width="20" height="20">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Placeholder pour futurs projets -->
+      <article class="project-card coming-soon">
+        <div class="card-content centered">
+          <div class="coming-icon">🎮</div>
+          <h3>Nouveaux projets</h3>
+          <p>D'autres histoires arrivent bientôt...</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Section Contact/Social -->
+  <section class="contact-section">
+    <div class="contact-content">
+      <h2 class="section-title">
+        <span class="title-decoration left"></span>
+        Restons en contact
+        <span class="title-decoration right"></span>
+      </h2>
+      
+      <div class="social-links">
+        <a href="https://github.com/anjammorpg" class="social-link" target="_blank">
+          <span class="social-icon">📦</span>
+          <span class="social-text">GitHub</span>
+        </a>
+        <a href="#" class="social-link">
+          <span class="social-icon">🎮</span>
+          <span class="social-text">itch.io</span>
+        </a>
+        <a href="mailto:anjammorpg@gmail.com" class="social-link">
+          <span class="social-icon">✉️</span>
+          <span class="social-text">Email</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Alegreya', serif;
+  background: linear-gradient(180deg, 
+    #1a1a2e 0%, 
+    #2d2d44 30%, 
+    #3d3d5c 60%, 
+    #4a4a6a 100%
+  );
+  color: #e8e8f0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ========== HERO SECTION ========== */
+.hero-section {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 4rem;
+}
+
+/* Particules animées */
+.particles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(168,168,192,0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 20s infinite linear;
+}
+
+.particle:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 25s;
+}
+
+.particle:nth-child(2) {
+  left: 30%;
+  animation-delay: 5s;
+  animation-duration: 20s;
+}
+
+.particle:nth-child(3) {
+  left: 50%;
+  animation-delay: 2s;
+  animation-duration: 30s;
+}
+
+.particle:nth-child(4) {
+  left: 70%;
+  animation-delay: 8s;
+  animation-duration: 22s;
+}
+
+.particle:nth-child(5) {
+  left: 90%;
+  animation-delay: 3s;
+  animation-duration: 28s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.title-line {
+  display: block;
+  background: linear-gradient(135deg, #c0c0d8, #a8a8c0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(168,168,192,0.3));
+  animation: subtle-glow 4s ease-in-out infinite;
+}
+
+.title-line.accent {
+  background: linear-gradient(135deg, #9090b0, #b8b8d0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: #a8a8c0;
+  font-style: italic;
+  margin: 1rem 0 2rem;
+  opacity: 0.9;
+  text-shadow: 0 0 20px rgba(168,168,192,0.2);
+}
+
+.hero-flourish {
+  color: rgba(168,168,192,0.4);
+  font-size: 1.5rem;
+  letter-spacing: 1rem;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Hero Gradient Overlay */
+.hero-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(transparent, #2d2d44);
+  pointer-events: none;
+}
+
+/* ========== MAIN CONTENT ========== */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.content-wrapper {
+  background: linear-gradient(135deg, 
+    rgba(45,45,68,0.6) 0%, 
+    rgba(61,61,92,0.4) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(168,168,192,0.1);
+  border-radius: 30px;
+  padding: 3rem;
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,0.4),
+    inset 0 0 60px rgba(168,168,192,0.02);
+}
+
+.content-wrapper h1,
+.content-wrapper h2,
+.content-wrapper h3 {
+  font-family: 'Cinzel', serif;
+  color: #c0c0d8;
+  margin: 2rem 0 1rem;
+}
+
+.content-wrapper h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #c0c0d8, #a8a8c0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.content-wrapper h2 {
+  font-size: 2rem;
+  margin-top: 3rem;
+}
+
+.content-wrapper h3 {
+  font-size: 1.5rem;
+  color: #b0b0c8;
+}
+
+.content-wrapper p {
+  line-height: 1.9;
+  color: #d0d0e0;
+  font-size: 1.1em;
+  margin: 1rem 0;
+}
+
+.content-wrapper a {
+  color: #a8a8c0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(168,168,192,0.3);
+  transition: all 0.3s ease;
+}
+
+.content-wrapper a:hover {
+  color: #c0c0d8;
+  border-bottom-color: #c0c0d8;
+  text-shadow: 0 0 10px rgba(192,192,216,0.3);
+}
+
+.content-wrapper hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(168,168,192,0.3), 
+    transparent
+  );
+  margin: 3rem 0;
+}
+
+.content-wrapper ul,
+.content-wrapper ol {
+  margin: 1rem 0 1rem 2rem;
+  color: #d0d0e0;
+}
+
+.content-wrapper li {
+  margin: 0.5rem 0;
+  line-height: 1.8;
+}
+
+.content-wrapper blockquote {
+  border-left: 3px solid rgba(168,168,192,0.3);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #b0b0c8;
+}
+
+.content-wrapper code {
+  background: rgba(168,168,192,0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95em;
+}
+
+/* ========== SECTION TITLES ========== */
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 4rem 0 3rem;
+  color: #c0c0d8;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.title-decoration {
+  flex: 0 0 80px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(168,168,192,0.3)
+  );
+}
+
+.title-decoration.left {
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(168,168,192,0.3)
+  );
+}
+
+.title-decoration.right {
+  background: linear-gradient(90deg, 
+    rgba(168,168,192,0.3), 
+    transparent
+  );
+}
+
+/* ========== FEATURED PROJECTS ========== */
+.featured-projects {
+  max-width: 1400px;
+  margin: 6rem auto;
+  padding: 0 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  background: linear-gradient(135deg, 
+    rgba(45,45,68,0.8) 0%, 
+    rgba(61,61,92,0.6) 100%
+  );
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(168,168,192,0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  border-color: rgba(168,168,192,0.3);
+}
+
+.card-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, 
+    rgba(168,168,192,0.1) 0%, 
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.project-card:hover .card-glow {
+  opacity: 1;
+}
+
+.card-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent, rgba(26,26,46,0.8));
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+}
+
+.project-status {
+  background: rgba(168,168,192,0.2);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #c0c0d8;
+  border: 1px solid rgba(168,168,192,0.3);
+}
+
+.card-content {
+  padding: 2rem;
+}
+
+.card-content h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  color: #c0c0d8;
+  margin-bottom: 0.5rem;
+}
+
+.project-type {
+  color: #9090b0;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.project-description {
+  color: #b0b0c8;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a8a8c0;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.card-link:hover {
+  color: #c0c0d8;
+  gap: 1rem;
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.card-link:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+/* Coming Soon Card */
+.coming-soon {
+  background: linear-gradient(135deg, 
+    rgba(45,45,68,0.4) 0%, 
+    rgba(61,61,92,0.3) 100%
+  );
+  border-style: dashed;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-soon .card-content.centered {
+  text-align: center;
+  padding: 3rem;
+}
+
+.coming-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  filter: grayscale(0.5);
+  opacity: 0.7;
+}
+
+.coming-soon h3 {
+  color: #9090b0;
+  margin-bottom: 0.5rem;
+}
+
+.coming-soon p {
+  color: #808098;
+  font-style: italic;
+}
+
+/* ========== CONTACT SECTION ========== */
+.contact-section {
+  max-width: 1000px;
+  margin: 6rem auto 4rem;
+  padding: 0 2rem;
+}
+
+.contact-content {
+  background: linear-gradient(135deg, 
+    rgba(45,45,68,0.6) 0%, 
+    rgba(61,61,92,0.4) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(168,168,192,0.1);
+  border-radius: 30px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.5rem;
+  background: rgba(168,168,192,0.05);
+  border: 1px solid rgba(168,168,192,0.2);
+  border-radius: 15px;
+  text-decoration: none;
+  color: #b0b0c8;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: rgba(168,168,192,0.1);
+  border-color: rgba(168,168,192,0.4);
+  transform: translateY(-3px);
+  color: #c0c0d8;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.social-icon {
+  font-size: 1.5rem;
+}
+
+.social-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes subtle-glow {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 30px rgba(168,168,192,0.3));
+  }
+  50% {
+    filter: brightness(1.1) drop-shadow(0 0 40px rgba(168,168,192,0.5));
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    gap: 1rem;
+  }
+  
+  .title-decoration {
+    flex: 0 0 40px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .content-wrapper {
+    padding: 2rem 1.5rem;
+  }
+  
+  .social-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .social-link {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .content-wrapper h1 {
+    font-size: 1.8rem;
+  }
+  
+  .content-wrapper h2 {
+    font-size: 1.5rem;
+  }
+}
+</style>
+
+<script>
+// Animation parallaxe subtile
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  const particles = document.querySelectorAll('.particle');
+  
+  particles.forEach((particle, index) => {
+    const speed = 0.5 + (index * 0.1);
+    particle.style.transform = `translateY(${-scrolled * speed}px)`;
+  });
+});
+
+// Animation d'apparition au scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+// Observer les cartes de projet
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'all 0.6s ease';
+    observer.observe(card);
+  });
+});
+
+// Effet de hover interactif sur les liens sociaux
+document.querySelectorAll('.social-link').forEach(link => {
+  link.addEventListener('mouseenter', (e) => {
+    const icon = e.currentTarget.querySelector('.social-icon');
+    icon.style.transform = 'scale(1.2) rotate(5deg)';
+    icon.style.transition = 'transform 0.3s ease';
+  });
+  
+  link.addEventListener('mouseleave', (e) => {
+    const icon = e.currentTarget.querySelector('.social-icon');
+    icon.style.transform = 'scale(1) rotate(0deg)';
+  });
+});
+</script>
+
+</body>
+</html>
