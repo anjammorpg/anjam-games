@@ -58,7 +58,7 @@ characters:
     description: "Prêtre naïf dévoué à Lumina"
 ---
 
-## Arrivée sur le ponton du Port de la Marée Basse, à l'heure de la Reine
+## Sur le ponton du Port de la Marée Basse
 
 *"Corayne... La cité qui n'a jamais plié le genou. Protégée par sa barrière de corail, elle se dresse fière face aux tempêtes et aux conquérants. C'est là qu'Eamon m'a appelée, après toutes ces années..."*  
 — **Elara**, cheffe d'expédition
